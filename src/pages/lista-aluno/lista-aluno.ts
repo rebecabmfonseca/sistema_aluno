@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { VisualizarAlunoPage } from '../visualizar-aluno/visualizar-aluno';
 
@@ -23,7 +23,7 @@ export class ListaAlunoPage {
 
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public storage: Storage, public alert: AlertController) {
+    public storage: Storage, public alert: AlertController, public toast: ToastController) {
     this.nome = navParams.get('nome')
     this.serie = navParams.get('serie')
     this.listaAlunos = navParams.get('listaAlunos')
@@ -47,6 +47,7 @@ export class ListaAlunoPage {
             handler: () => {
               this.listaAlunos.splice(i,1);
               this.storage.set('alunos',this.listaAlunos);
+              this.avisoRemocao();
               console.log(this.listaAlunos)
             }
           }
@@ -60,6 +61,16 @@ export class ListaAlunoPage {
       this.navCtrl.push(VisualizarAlunoPage, { aluno: this.listaAlunos[i]})
 
     }
+
+    async avisoRemocao() {
+      const toast = await this.toast.create({
+        message: 'Removido com sucesso!',
+        duration: 2000,
+        position: 'bottom'
+      });
+      toast.present();
+    }
+  
 
   
 
