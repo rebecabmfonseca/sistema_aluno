@@ -7,12 +7,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { IonicStorageModule } from '@ionic/storage';
+import { ListaAlunoPage } from '../pages/lista-aluno/lista-aluno';
+import { VisualizarAlunoPage } from '../pages/visualizar-aluno/visualizar-aluno';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ListaAlunoPage,
+    VisualizarAlunoPage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,10 @@ import { IonicStorageModule } from '@ionic/storage';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ListaAlunoPage,
+    VisualizarAlunoPage
+    
   ],
   providers: [
     StatusBar,

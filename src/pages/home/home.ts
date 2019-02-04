@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { ListaAlunoPage } from '../lista-aluno/lista-aluno';
 
 @Component({
   selector: 'page-home',
@@ -24,9 +25,10 @@ export class HomePage {
 
   }
   listaAlunos: any
+  TodososAlunos: any
   
 
-  constructor(public navCtrl: NavController, private storage: Storage) {
+  constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams) {
     this.listaAlunos = []
     this.storage.get('alunos').then(alu =>{
       for (let i = 0; i < alu.length; i++) {
@@ -69,6 +71,12 @@ export class HomePage {
     })
     this.storage.set("alunos", this.listaAlunos);
     console.log(this.listaAlunos)
+        
+    this.navCtrl.push(ListaAlunoPage, {
+      nome: this.aluno.nome,
+      serie: this.aluno.serie,
+      listaAlunos: this.listaAlunos
+    });
+    
   }
-
 }
