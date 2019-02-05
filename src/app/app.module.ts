@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { IonicStorageModule } from '@ionic/storage';
 import { ListaAlunoPage } from '../pages/lista-aluno/lista-aluno';
 import { VisualizarAlunoPage } from '../pages/visualizar-aluno/visualizar-aluno';
+import { BrMaskerModule } from 'brmasker-ionic-3';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { VisualizarAlunoPage } from '../pages/visualizar-aluno/visualizar-aluno'
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    BrMaskerModule
 
   ],
   bootstrap: [IonicApp],

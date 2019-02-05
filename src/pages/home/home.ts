@@ -37,6 +37,7 @@ export class HomePage {
   rua: AbstractControl
   numeroCasa: AbstractControl
   bairro: AbstractControl
+  complemento: AbstractControl
   cidade: AbstractControl
   estado: AbstractControl
   nomeMae: AbstractControl
@@ -51,18 +52,19 @@ export class HomePage {
     private formBuilder: FormBuilder) {
 
     this.formGroup = formBuilder.group({
-      nome: ['', Validators.required],
+      nome: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
       data: ['', Validators.required],
       serie: ['', Validators.required],
       cep: ['', Validators.required],
-      rua: ['', Validators.required],
+      rua: ['', Validators.compose([Validators.required, Validators.maxLength(120)])],
       numeroCasa: ['', Validators.required],
-      bairro: ['', Validators.required],
-      cidade: ['', Validators.required],
+      bairro: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
+      complemento: ['', Validators.maxLength(50)],
+      cidade: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
       estado: ['', Validators.required],
-      nomeMae: ['', Validators.required],
+      nomeMae: ['', Validators.compose([Validators.required, Validators.maxLength(100)])],
       cpfMae: ['', Validators.required],
-      diaPagamento: ['', Validators.required]
+      diaPagamento: ['', Validators.compose([Validators.required, Validators.max(30), Validators.min(1)])]
     });
     this.nome = this.formGroup.controls['nome'];
     this.data = this.formGroup.controls['data'];
@@ -71,6 +73,7 @@ export class HomePage {
     this.rua = this.formGroup.controls['rua'];
     this.numeroCasa = this.formGroup.controls['numeroCasa'];
     this.bairro = this.formGroup.controls['bairro'];
+    this.complemento = this.formGroup.controls['complemento'];
     this.cidade = this.formGroup.controls['cidade'];
     this.estado = this.formGroup.controls['estado'];
     this.nomeMae = this.formGroup.controls['nomeMae'];
