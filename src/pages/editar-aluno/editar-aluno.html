@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Storage Example
+Editar Aluno
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -29,7 +29,7 @@
     <ion-item>
       <ion-label stacked>Data de Nascimento</ion-label>
       <ion-datetime display-format="DD/MM/YYYY" pickerFormat="DD/MMM/YYYY" cancelText="Cancelar" 
-      doneText="Ok" name="dataNascimento" formControlName="data" [(ngModel)]="model.dataNascimento" 
+      doneText="Ok" name="dataNascimento" formControlName="dataNascimento" [(ngModel)]="model.dataNascimento" 
       monthShortNames="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez"></ion-datetime>
     </ion-item>
     <ion-item *ngIf="dataNascimento.hasError('required') && dataNascimento.touched">
@@ -190,7 +190,7 @@
       <h6>*Itens Obrigatórios</h6>
     </ion-item>
     <ion-item>
-      <button ion-button block (click)="salvar()">Salvar</button>
+      <button ion-button block [disabled]="formGroup.invalid" (click)="salvar()">Salvar</button>
     </ion-item>
 </form>
 </ion-content>

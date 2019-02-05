@@ -11,13 +11,15 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AlunoProvider } from '../providers/aluno/aluno';
 import { EditarAlunoPage } from '../pages/editar-aluno/editar-aluno';
 import { BrMaskerModule } from 'brmasker-ionic-3';
+import { VisualizarPage } from '../pages/visualizar/visualizar';
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    EditarAlunoPage
+    EditarAlunoPage,
+    VisualizarPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
   entryComponents: [
     MyApp,
     HomePage,
-    EditarAlunoPage
+    EditarAlunoPage,
+    VisualizarPage
   ],
   providers: [
     StatusBar,

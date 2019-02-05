@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 import { AlunoLista, AlunoProvider } from '../../providers/aluno/aluno';
 import { EditarAlunoPage } from '../editar-aluno/editar-aluno';
+import { VisualizarPage } from '../visualizar/visualizar';
 
 @Component({
   selector: 'page-home',
@@ -19,6 +20,10 @@ export class HomePage {
         this.alunos = resultado;
       });
       
+  }
+  visualizarAluno(item){
+    this.navCtrl.push(VisualizarPage, {aluno:item.aluno});
+    console.log(item.aluno)
   }
 
   addAluno() {
