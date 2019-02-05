@@ -1,14 +1,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-Editar Aluno
+Aluno
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <form [formGroup]="formGroup">
-
+<ion-content padding >
+  <form [formGroup]="formGroup" class="form-simples" >
+   
     <ion-item no-lines>
       <ion-label class="titulo_h2">
         <h2>Dados Pessoais</h2>
@@ -16,7 +16,7 @@ Editar Aluno
     </ion-item>
 
    <ion-item>
-      <ion-label stacked>Nome</ion-label>
+      <ion-label floating >Nome*:</ion-label>
       <ion-input type="text" name="nome" formControlName="nome" [(ngModel)]="model.nome"></ion-input>
     </ion-item>
     <ion-item *ngIf="nome.hasError('required') && nome.touched">
@@ -27,7 +27,7 @@ Editar Aluno
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Data de Nascimento</ion-label>
+      <ion-label >Data de Nascimento*:</ion-label>
       <ion-datetime display-format="DD/MM/YYYY" pickerFormat="DD/MMM/YYYY" cancelText="Cancelar" 
       doneText="Ok" name="dataNascimento" formControlName="dataNascimento" [(ngModel)]="model.dataNascimento" 
       monthShortNames="Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez"></ion-datetime>
@@ -115,8 +115,8 @@ Editar Aluno
       <p>*Cidade é muito extenso</p>
     </ion-item>
     <ion-item>
-      <ion-label>Estado<strong>*</strong>:</ion-label>
-      <ion-select cancelText="Cancelar" okText="Ok" formControlName="estado" name="estado" [(ngModel)]="model.estado">
+      <ion-label >Estado<strong>*</strong>:</ion-label>
+      <ion-select  text-wrap cancelText="Cancelar" okText="Ok" formControlName="estado" name="estado" [(ngModel)]="model.estado">
         <ion-option value="AC">Acre</ion-option>
         <ion-option value="AL">Alagoas</ion-option>
         <ion-option value="AP">Amapá</ion-option>

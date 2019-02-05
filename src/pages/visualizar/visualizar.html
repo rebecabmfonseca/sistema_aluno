@@ -6,15 +6,60 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding text-wrap>
   <ion-list>
-    <ion-item>
+    <ion-item >
       <ion-label>Nome: {{aluno.nome}}</ion-label>
     </ion-item>
 
     <ion-item>
-        <ion-label>Data de Nascimento: {{aluno.dataNascimento}}</ion-label>
-      </ion-item>
+      <ion-label>Data de Nascimento: {{aluno.dataNascimento | date:'dd/MM/yyyy' }}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Série: {{aluno.serie}}º ano</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>CEP: {{aluno.cep}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Rua: {{aluno.rua}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Número: {{aluno.numeroCasa}}</ion-label>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label>Complemento: {{aluno.complemento}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Bairro: {{aluno.bairro}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cidade: {{aluno.cidade}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Estado: {{aluno.numeroCasa}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nome da Mãe: {{aluno.nomeMae}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>CPF da Mãe: {{aluno.cpfMae}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Dia do pagamento: {{aluno.diaPagamento}}</ion-label>
+    </ion-item>
+
   </ion-list>
 
 </ion-content>

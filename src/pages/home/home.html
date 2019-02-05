@@ -1,21 +1,21 @@
 <ion-header>
     <ion-navbar>
-      <ion-title>
+      <ion-title >
         Listagem de Alunos
       </ion-title>
     </ion-navbar>
   </ion-header>
   
   <ion-content padding>
-    <ion-list>
+    <ion-list >
       <ion-card *ngFor="let item of alunos" >
   
-        <ion-card-header>
+        <ion-card-header text-wrap>
           <h1>{{ item.aluno.nome }}</h1>
         </ion-card-header>
   
         <ion-card-content>
-          <p> {{ item.aluno.dataNascimento | date:'dd/MM/yyyy' }} </p>
+          <p> {{ item.aluno.serie }}º ano</p>
         </ion-card-content>
   
         <ion-row text-center>
@@ -26,13 +26,13 @@
             </button>
           </ion-col>
           <ion-col>
-            <button ion-button icon-left clear small (click)="visualizarAluno(item);">
-              <ion-icon name="list"></ion-icon>
+            <button color="secondary" ion-button icon-left clear small (click)="visualizarAluno(item);">
+              <ion-icon  name="list"></ion-icon>
               <div>Ver</div>
             </button>
           </ion-col>
           <ion-col>
-            <button ion-button icon-left clear small (click)="removerAluno(item);">
+            <button color="danger" ion-button icon-left clear small (click)="removerAluno(item);">
               <ion-icon name="trash"></ion-icon>
               <div>Excluir</div>
             </button>

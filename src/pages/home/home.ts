@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, ToastController, AlertController } from 'ionic-angular';
 import { AlunoLista, AlunoProvider } from '../../providers/aluno/aluno';
 import { EditarAlunoPage } from '../editar-aluno/editar-aluno';
 import { VisualizarPage } from '../visualizar/visualizar';
@@ -11,7 +11,7 @@ import { VisualizarPage } from '../visualizar/visualizar';
 export class HomePage {
   alunos: AlunoLista[];
 
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController, public alert:AlertController,
     private toast: ToastController,public alunoProvider: AlunoProvider) { }
 
   ionViewDidEnter() {
@@ -35,12 +35,32 @@ export class HomePage {
   }
 
   removerAluno(item: AlunoLista) {
-    this.alunoProvider.remover(item.key)
-      .then(() => {
-        var index = this.alunos.indexOf(item);
-        this.alunos.splice(index, 1);
-        this.toast.create({ message: 'Aluno removido.', duration: 3000, position: 'botton' }).present();
-      })
+
+    const confirma = this.alert.create({
+      message: 'Tem certeza que quer remover ?',
+      buttons:[
+        {
+          text: 'Cancelar',
+          handler:() =>{
+
+          }
+        },
+        {
+          text: 'Confirmo',
+          handler:() =>{
+            this.alunoProvider.remover(item.key)
+            .then(() => {
+              var index = this.alunos.indexOf(item);
+              this.alunos.splice(index, 1);
+              this.toast.create({ message: 'Aluno removido.', duration: 3000, position: 'botton' }).present();
+            })
+          }
+        }
+      ]
+    })
+    confirma.present();
+
+    
   }
 
 }
