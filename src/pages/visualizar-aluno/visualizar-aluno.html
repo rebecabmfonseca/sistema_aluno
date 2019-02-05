@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Aluno</ion-title>
+    <ion-title>Dados do aluno</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,19 +9,19 @@
 
 <ion-content padding>
   <ion-item>
-    <h1>Dados Pessoais</h1>
+    <h1 class="titulo_h1">Dados Pessoais</h1>
   </ion-item>
-  <ion-item>
-    <ion-label> Nome: {{aluno.nome}}</ion-label>
+  <ion-item class="item item-text-wrap">
+    <ion-label class="label_nome"> Nome: {{aluno.nome}}</ion-label>
   </ion-item>
   <ion-item>
     <ion-label> Data de Nascimento: {{aluno.data}}</ion-label>
   </ion-item>
   <ion-item>
-    <ion-label> Série {{aluno.serie}}</ion-label>
+    <ion-label> Série: {{aluno.serie}}º ano</ion-label>
   </ion-item>
   <ion-item>
-      <h1>Endereço</h1>
+      <h1 class="titulo_h1">Endereço</h1>
     </ion-item>
   <ion-item>
     <ion-label> CEP: {{aluno.cep}}</ion-label>
@@ -45,10 +45,10 @@
     <ion-label> Estado: {{aluno.estado}}</ion-label>
   </ion-item>
   <ion-item>
-      <h1>Dados da Mãe</h1>
+      <h1 class="titulo_h1">Dados da Mãe</h1>
     </ion-item>
-  <ion-item>
-    <ion-label> Nome da mãe: {{aluno.nomeMae}}</ion-label>
+  <ion-item >
+    <ion-label class="label_nome"> Nome da mãe: {{aluno.nomeMae}}</ion-label>
   </ion-item>
   <ion-item>
     <ion-label> CPF da mãe: {{aluno.cpfMae}}</ion-label>

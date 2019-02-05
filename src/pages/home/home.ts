@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ListaAlunoPage } from '../lista-aluno/lista-aluno';
-import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl, ControlContainer } from '@angular/forms';
 
 @Component({
   selector: 'page-home',
@@ -112,7 +112,7 @@ export class HomePage {
   cadastrarAluno() {
     this.listaAlunos.push({
       nome: this.aluno.nome,
-      data: this.aluno.data,
+      data: this.formatandoData(this.aluno.data),
       serie: this.aluno.serie,
       cep: this.aluno.cep,
       rua: this.aluno.rua,
@@ -135,5 +135,10 @@ export class HomePage {
       listaAlunos: this.listaAlunos
     });
 
+  }
+
+  formatandoData(data){
+    let pedacosData = data.split('-');
+     return pedacosData[2]+'/'+pedacosData[1]+'/'+pedacosData[0]
   }
 }
