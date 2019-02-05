@@ -6,9 +6,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { DatePipe } from '@angular/common';
 import { IonicStorageModule } from '@ionic/storage';
-import { ListaAlunoPage } from '../pages/lista-aluno/lista-aluno';
-import { VisualizarAlunoPage } from '../pages/visualizar-aluno/visualizar-aluno';
+import { AlunoProvider } from '../providers/aluno/aluno';
+import { EditarAlunoPage } from '../pages/editar-aluno/editar-aluno';
 import { BrMaskerModule } from 'brmasker-ionic-3';
 
 
@@ -16,28 +17,26 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
   declarations: [
     MyApp,
     HomePage,
-    ListaAlunoPage,
-    VisualizarAlunoPage
+    EditarAlunoPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     BrMaskerModule
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListaAlunoPage,
-    VisualizarAlunoPage
-    
+    EditarAlunoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatePipe,
+    AlunoProvider
   ]
 })
 export class AppModule {}
