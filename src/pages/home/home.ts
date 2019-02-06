@@ -18,8 +18,7 @@ export class HomePage {
     this.alunoProvider.todosOsAlunos()
       .then((resultado) => {
         this.alunos = resultado;
-      });
-      
+      });     
   }
   visualizarAluno(item){
     this.navCtrl.push(VisualizarPage, {aluno:item.aluno});
